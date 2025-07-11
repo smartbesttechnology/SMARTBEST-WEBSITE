@@ -1,16 +1,20 @@
 import React, { useState } from 'react';
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Clock, 
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Clock,
   Send,
   CheckCircle,
   MessageSquare,
   Users,
   Zap,
-  MessageCircle
+  MessageCircle,
+  Github,
+  Twitter,
+  Instagram
 } from 'lucide-react';
+import { FadeInUp, StaggerContainer, StaggerItem } from './animations';
 import { useGeolocation } from '../hooks/useGeolocation';
 
 const Contact = () => {
@@ -39,13 +43,13 @@ const Contact = () => {
   };
 
   const services = [
-    'Web Development',
-    'Mobile Development',
-    'Cloud Solutions',
-    'Cybersecurity',
-    'AI Services',
-    'Data Analytics',
-    'IT Consulting',
+    'AI Chatbots',
+    'Voice AI',
+    'CRM Integration',
+    'AI Assistants',
+    'Multi-Platform Integration',
+    'Lead Nurturing',
+    'Custom AI Solutions',
     'Other'
   ];
 
@@ -90,28 +94,31 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-gray-50">
+    <section id="contact" className="py-20 bg-gray-50 dark:bg-gray-800 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Get In <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Touch</span>
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Ready to transform your business with cutting-edge technology? Let's discuss your project and explore how we can help you achieve your goals.
-          </p>
+        <FadeInUp delay={0.1}>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+              Let AI work while you sleep. <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Book a free consultation today.</span>
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              Ready to automate and scale your business with AI? Let's discuss how our AI Business Automation solutions can transform your operations and drive growth.
+            </p>
           {country && (
             <div className="mt-4 inline-flex items-center bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium">
               <MapPin className="h-4 w-4 mr-2" />
               Showing contact details for {country}
             </div>
           )}
-        </div>
+          </div>
+        </FadeInUp>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Contact Information */}
-          <div className="lg:col-span-1">
-            <div className="bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl p-8 text-white h-full">
+          <FadeInUp delay={0.3}>
+            <div className="lg:col-span-1">
+              <div className="bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl p-8 text-white h-full">
               <h3 className="text-2xl font-bold mb-8">Contact Information</h3>
               
               <div className="space-y-6">
@@ -145,34 +152,73 @@ const Contact = () => {
                 </a>
               </div>
 
+              {/* Social Media Links */}
+              <div className="mt-6 pt-6 border-t border-white/20">
+                <h4 className="font-semibold mb-4 text-center">Follow Us</h4>
+                <div className="flex justify-center space-x-4">
+                  <a
+                    href="https://github.com/smartbesttechnology"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-white/20 hover:bg-white/30 p-3 rounded-lg transition-all duration-200 transform hover:scale-110"
+                    aria-label="Follow us on GitHub"
+                    title="Follow us on GitHub"
+                  >
+                    <Github className="h-5 w-5" />
+                  </a>
+                  <a
+                    href="https://x.com/smartbesttech"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-white/20 hover:bg-white/30 p-3 rounded-lg transition-all duration-200 transform hover:scale-110"
+                    aria-label="Follow us on X (Twitter)"
+                    title="Follow us on X (Twitter)"
+                  >
+                    <Twitter className="h-5 w-5" />
+                  </a>
+                  <a
+                    href="https://www.instagram.com/smartbesttech"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-white/20 hover:bg-white/30 p-3 rounded-lg transition-all duration-200 transform hover:scale-110"
+                    aria-label="Follow us on Instagram"
+                    title="Follow us on Instagram"
+                  >
+                    <Instagram className="h-5 w-5" />
+                  </a>
+                </div>
+              </div>
+
               {/* Why Choose Us */}
               <div className="mt-8 pt-6 border-t border-white/20">
-                <h4 className="font-semibold mb-4">Why Choose Us?</h4>
+                <h4 className="font-semibold mb-4">Why Choose Smartbest AI?</h4>
                 <div className="space-y-3">
                   <div className="flex items-center space-x-3">
                     <CheckCircle className="h-5 w-5 text-green-300" />
-                    <span className="text-blue-100 text-sm">Free consultation & project estimation</span>
+                    <span className="text-blue-100 text-sm">Free AI consultation & ROI calculation</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <CheckCircle className="h-5 w-5 text-green-300" />
-                    <span className="text-blue-100 text-sm">24/7 support & maintenance</span>
+                    <span className="text-blue-100 text-sm">24/7 AI support & monitoring</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <CheckCircle className="h-5 w-5 text-green-300" />
-                    <span className="text-blue-100 text-sm">Agile development methodology</span>
+                    <span className="text-blue-100 text-sm">Fully-managed setup & training</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <CheckCircle className="h-5 w-5 text-green-300" />
-                    <span className="text-blue-100 text-sm">100% satisfaction guarantee</span>
+                    <span className="text-blue-100 text-sm">Human-like AI interactions</span>
                   </div>
                 </div>
               </div>
+              </div>
             </div>
-          </div>
+          </FadeInUp>
 
           {/* Contact Form */}
-          <div className="lg:col-span-2">
-            <div className="bg-white rounded-2xl p-8 shadow-lg">
+          <FadeInUp delay={0.5}>
+            <div className="lg:col-span-2">
+              <div className="bg-white dark:bg-gray-700 rounded-2xl p-8 shadow-lg border border-gray-100 dark:border-gray-600">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h3>
               
               {isSubmitted ? (
@@ -279,45 +325,46 @@ const Contact = () => {
                   </button>
                 </form>
               )}
+              </div>
             </div>
-          </div>
+          </FadeInUp>
         </div>
 
         {/* Quick Contact Options */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="bg-white rounded-xl p-6 shadow-md text-center hover:shadow-lg transition-shadow">
-            <div className="bg-blue-100 p-4 rounded-full inline-flex mb-4">
-              <MessageSquare className="h-8 w-8 text-blue-600" />
+        <StaggerContainer className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8" staggerDelay={0.15}>
+          <StaggerItem className="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md text-center hover:shadow-lg dark:hover:shadow-gray-900/50 transition-shadow border border-gray-100 dark:border-gray-600">
+            <div className="bg-blue-100 dark:bg-blue-900/30 p-4 rounded-full inline-flex mb-4">
+              <MessageSquare className="h-8 w-8 text-blue-600 dark:text-blue-400" />
             </div>
-            <h4 className="text-lg font-semibold text-gray-900 mb-2">Live Chat</h4>
-            <p className="text-gray-600 mb-4">Get instant answers to your questions</p>
-            <button className="text-blue-600 font-semibold hover:text-blue-700 transition-colors">
-              Start Chat
+            <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">AI Demo</h4>
+            <p className="text-gray-600 dark:text-gray-300 mb-4">See our AI solutions in action</p>
+            <button className="text-blue-600 dark:text-blue-400 font-semibold hover:text-blue-700 dark:hover:text-blue-300 transition-colors">
+              Request Demo
             </button>
-          </div>
+          </StaggerItem>
 
-          <div className="bg-white rounded-xl p-6 shadow-md text-center hover:shadow-lg transition-shadow">
-            <div className="bg-purple-100 p-4 rounded-full inline-flex mb-4">
-              <Users className="h-8 w-8 text-purple-600" />
+          <StaggerItem className="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md text-center hover:shadow-lg dark:hover:shadow-gray-900/50 transition-shadow border border-gray-100 dark:border-gray-600">
+            <div className="bg-purple-100 dark:bg-purple-900/30 p-4 rounded-full inline-flex mb-4">
+              <Users className="h-8 w-8 text-purple-600 dark:text-purple-400" />
             </div>
-            <h4 className="text-lg font-semibold text-gray-900 mb-2">Schedule Meeting</h4>
-            <p className="text-gray-600 mb-4">Book a free consultation call</p>
-            <button className="text-purple-600 font-semibold hover:text-purple-700 transition-colors">
+            <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">AI Consultation</h4>
+            <p className="text-gray-600 dark:text-gray-300 mb-4">Book a free AI strategy session</p>
+            <button className="text-purple-600 dark:text-purple-400 font-semibold hover:text-purple-700 dark:hover:text-purple-300 transition-colors">
               Book Now
             </button>
-          </div>
+          </StaggerItem>
 
-          <div className="bg-white rounded-xl p-6 shadow-md text-center hover:shadow-lg transition-shadow">
-            <div className="bg-green-100 p-4 rounded-full inline-flex mb-4">
-              <Zap className="h-8 w-8 text-green-600" />
+          <StaggerItem className="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-md text-center hover:shadow-lg dark:hover:shadow-gray-900/50 transition-shadow border border-gray-100 dark:border-gray-600">
+            <div className="bg-green-100 dark:bg-green-900/30 p-4 rounded-full inline-flex mb-4">
+              <Zap className="h-8 w-8 text-green-600 dark:text-green-400" />
             </div>
-            <h4 className="text-lg font-semibold text-gray-900 mb-2">Quick Quote</h4>
-            <p className="text-gray-600 mb-4">Get an estimate for your project</p>
-            <button className="text-green-600 font-semibold hover:text-green-700 transition-colors">
-              Get Quote
+            <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">ROI Calculator</h4>
+            <p className="text-gray-600 dark:text-gray-300 mb-4">Calculate your AI automation ROI</p>
+            <button className="text-green-600 dark:text-green-400 font-semibold hover:text-green-700 dark:hover:text-green-300 transition-colors">
+              Calculate ROI
             </button>
-          </div>
-        </div>
+          </StaggerItem>
+        </StaggerContainer>
       </div>
     </section>
   );

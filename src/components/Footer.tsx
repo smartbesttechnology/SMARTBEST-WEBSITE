@@ -1,7 +1,7 @@
 import React from 'react';
-import { 
-  Mail, 
-  Phone, 
+import {
+  Mail,
+  Phone,
   MapPin,
   Facebook,
   Twitter,
@@ -21,13 +21,13 @@ const Footer = () => {
 
   const footerLinks = {
     services: [
-      { name: 'Web Development', href: '#services' },
-      { name: 'Mobile Development', href: '#services' },
-      { name: 'Cloud Solutions', href: '#services' },
-      { name: 'Cybersecurity', href: '#services' },
-      { name: 'AI Services', href: '#services' },
-      { name: 'Data Analytics', href: '#services' },
-      { name: 'IT Consulting', href: '#services' }
+      { name: 'AI Business Automation', href: '#services' },
+      { name: 'Mobile & Web Apps', href: '#services' },
+      { name: 'Telegram Bots & Shops', href: '#services' },
+      { name: 'Lead Generation & Sales', href: '#services' },
+      { name: 'UI/UX Design', href: '#services' },
+      { name: 'AI Chat Agents', href: '#services' },
+      { name: 'Voice AI Assistants', href: '#services' }
     ],
     company: [
       { name: 'About Us', href: '#about' },
@@ -48,15 +48,13 @@ const Footer = () => {
   };
 
   const socialLinks = [
-    { icon: Facebook, href: '#', label: 'Facebook' },
-    { icon: Twitter, href: '#', label: 'Twitter' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Instagram, href: '#', label: 'Instagram' },
-    { icon: Github, href: '#', label: 'GitHub' }
+    { icon: Github, href: 'https://github.com/smartbesttechnology', label: 'GitHub' },
+    { icon: Twitter, href: 'https://x.com/smartbesttech', label: 'X (Twitter)' },
+    { icon: Instagram, href: 'https://www.instagram.com/smartbesttech', label: 'Instagram' }
   ];
 
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-gray-900 dark:bg-gray-950 text-white transition-colors duration-300">
       {/* Main Footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -69,8 +67,8 @@ const Footer = () => {
                 className="h-8 w-auto"
               />
             </div>
-            <p className="text-gray-400 mb-6 leading-relaxed">
-              Empowering businesses through innovative technology solutions. We transform ideas into digital reality with cutting-edge development and strategic consulting.
+            <p className="text-gray-400 dark:text-gray-500 mb-6 leading-relaxed">
+              Empowering businesses through AI automation solutions. We build intelligent systems that think, speak, and close deals like real humans, transforming operations and driving growth.
             </p>
             
             {/* Contact Info */}
@@ -170,8 +168,8 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             {/* Copyright */}
-            <div className="text-gray-400 text-sm">
-              © 2024 Smart Best Technology. All rights reserved.
+            <div className="text-gray-400 dark:text-gray-500 text-sm">
+              © 2024 Smartbest Technologies. All rights reserved.
             </div>
 
             {/* Social Links */}
@@ -182,8 +180,11 @@ const Footer = () => {
                   <a
                     key={social.label}
                     href={social.href}
-                    className="text-gray-400 hover:text-white transition-colors p-2 hover:bg-gray-800 rounded-lg"
-                    aria-label={social.label}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-400 hover:text-white dark:text-gray-500 dark:hover:text-gray-200 transition-colors p-2 hover:bg-gray-800 dark:hover:bg-gray-700 rounded-lg transform hover:scale-110"
+                    aria-label={`Follow us on ${social.label}`}
+                    title={`Follow us on ${social.label}`}
                   >
                     <IconComponent className="h-5 w-5" />
                   </a>
