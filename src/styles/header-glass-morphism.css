@@ -1,0 +1,601 @@
+/* Header Glass Morphism Effects */
+
+/* Enhanced RGB Color-shifting Progress Line */
+@keyframes rgb-rainbow-flow {
+  0% {
+    background-position: 0% 50%;
+    background: linear-gradient(
+      90deg,
+      #ff0000 0%,
+      #ff7f00 14.28%,
+      #ffff00 28.56%,
+      #00ff00 42.84%,
+      #0000ff 57.12%,
+      #4b0082 71.4%,
+      #9400d3 85.68%,
+      #ff0000 100%
+    );
+  }
+  16.66% {
+    background-position: 16.66% 50%;
+    background: linear-gradient(
+      90deg,
+      #ff7f00 0%,
+      #ffff00 14.28%,
+      #00ff00 28.56%,
+      #0000ff 42.84%,
+      #4b0082 57.12%,
+      #9400d3 71.4%,
+      #ff0000 85.68%,
+      #ff7f00 100%
+    );
+  }
+  33.33% {
+    background-position: 33.33% 50%;
+    background: linear-gradient(
+      90deg,
+      #ffff00 0%,
+      #00ff00 14.28%,
+      #0000ff 28.56%,
+      #4b0082 42.84%,
+      #9400d3 57.12%,
+      #ff0000 71.4%,
+      #ff7f00 85.68%,
+      #ffff00 100%
+    );
+  }
+  50% {
+    background-position: 50% 50%;
+    background: linear-gradient(
+      90deg,
+      #00ff00 0%,
+      #0000ff 14.28%,
+      #4b0082 28.56%,
+      #9400d3 42.84%,
+      #ff0000 57.12%,
+      #ff7f00 71.4%,
+      #ffff00 85.68%,
+      #00ff00 100%
+    );
+  }
+  66.66% {
+    background-position: 66.66% 50%;
+    background: linear-gradient(
+      90deg,
+      #0000ff 0%,
+      #4b0082 14.28%,
+      #9400d3 28.56%,
+      #ff0000 42.84%,
+      #ff7f00 57.12%,
+      #ffff00 71.4%,
+      #00ff00 85.68%,
+      #0000ff 100%
+    );
+  }
+  83.33% {
+    background-position: 83.33% 50%;
+    background: linear-gradient(
+      90deg,
+      #4b0082 0%,
+      #9400d3 14.28%,
+      #ff0000 28.56%,
+      #ff7f00 42.84%,
+      #ffff00 57.12%,
+      #00ff00 71.4%,
+      #0000ff 85.68%,
+      #4b0082 100%
+    );
+  }
+  100% {
+    background-position: 100% 50%;
+    background: linear-gradient(
+      90deg,
+      #9400d3 0%,
+      #ff0000 14.28%,
+      #ff7f00 28.56%,
+      #ffff00 42.84%,
+      #00ff00 57.12%,
+      #0000ff 71.4%,
+      #4b0082 85.68%,
+      #9400d3 100%
+    );
+  }
+}
+
+/* Scroll-based intensity animation */
+@keyframes rgb-pulse {
+  0%, 100% {
+    filter: brightness(1) saturate(1);
+    box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+  }
+  50% {
+    filter: brightness(1.2) saturate(1.3);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+  }
+}
+
+.rgb-line {
+  height: 4px;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    #ff0000 0%,
+    #ff7f00 14.28%,
+    #ffff00 28.56%,
+    #00ff00 42.84%,
+    #0000ff 57.12%,
+    #4b0082 71.4%,
+    #9400d3 85.68%,
+    #ff0000 100%
+  );
+  background-size: 300% 100%;
+  animation: rgb-rainbow-flow 6s linear infinite;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  will-change: transform, opacity, filter;
+  transform: translateZ(0);
+  transition: opacity 0.3s ease, filter 0.3s ease;
+  overflow: hidden;
+}
+
+/* Progress indicator overlay */
+.rgb-line::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: var(--scroll-progress, 0%);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.3) 100%
+  );
+  transition: width 0.1s ease-out;
+  pointer-events: none;
+}
+
+/* Smart Liquid Glass Header with Curved Bottom Corners */
+.smart-liquid-glass {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: none; /* Remove top border to maintain RGB line visibility */
+  border-radius: 0 0 12px 12px; /* Only bottom corners curved */
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.smart-liquid-glass::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.05),
+    transparent
+  );
+  border-radius: inherit; /* Inherit the curved corners */
+  transition: left 0.8s ease;
+}
+
+.smart-liquid-glass:hover::before {
+  left: 100%;
+}
+
+/* Enhanced corner glow effect */
+.smart-liquid-glass::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 20%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.1) 80%,
+    transparent 100%
+  );
+  border-radius: 0 0 12px 12px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.smart-liquid-glass.scrolled::after {
+  opacity: 1;
+  border-radius: 0 0 16px 16px;
+}
+
+/* Dark mode adjustments */
+.dark .smart-liquid-glass {
+  background: rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: none;
+}
+
+.dark .smart-liquid-glass::before {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.03),
+    transparent
+  );
+}
+
+.dark .smart-liquid-glass::after {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.05) 20%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.05) 80%,
+    transparent 100%
+  );
+}
+
+/* Scrolled state glass effect with enhanced curves */
+.smart-liquid-glass.scrolled {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-top: none; /* Maintain RGB line visibility */
+  border-radius: 0 0 16px 16px; /* Slightly larger radius when scrolled */
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+.dark .smart-liquid-glass.scrolled {
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: none;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Pop Liquid Glass Effect for Action Buttons */
+.pop-liquid-glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateZ(0);
+}
+
+.pop-liquid-glass::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.05)
+  );
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.pop-liquid-glass:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 
+    0 10px 25px rgba(0, 0, 0, 0.15),
+    0 0 20px rgba(59, 130, 246, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.pop-liquid-glass:hover::before {
+  opacity: 1;
+}
+
+.pop-liquid-glass:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* Dark mode adjustments for pop glass */
+.dark .pop-liquid-glass {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.dark .pop-liquid-glass::before {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 255, 255, 0.03)
+  );
+}
+
+.dark .pop-liquid-glass:hover {
+  box-shadow: 
+    0 10px 25px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(59, 130, 246, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Enhanced Social Media Icons Glass Effect */
+.social-glass {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.social-glass::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(59, 130, 246, 0.1),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.social-glass:hover {
+  transform: translateY(-1px) scale(1.05);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 8px 20px rgba(0, 0, 0, 0.1),
+    0 0 15px rgba(59, 130, 246, 0.15);
+}
+
+.social-glass:hover::after {
+  opacity: 1;
+}
+
+.dark .social-glass {
+  background: rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dark .social-glass:hover {
+  background: rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 
+    0 8px 20px rgba(0, 0, 0, 0.3),
+    0 0 15px rgba(59, 130, 246, 0.2);
+}
+
+/* Navigation Menu Glass Effect */
+.nav-glass {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-glass::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-glass:hover::before {
+  width: 100%;
+}
+
+.nav-glass:hover {
+  color: #3b82f6;
+  text-shadow: 0 0 10px rgba(59, 130, 246, 0.3);
+}
+
+.dark .nav-glass:hover {
+  color: #60a5fa;
+  text-shadow: 0 0 10px rgba(96, 165, 250, 0.3);
+}
+
+/* Mobile Menu Glass Effect with Curved Corners */
+.mobile-menu-glass {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.1),
+    0 0 20px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  margin-top: 8px; /* Add space from header for visual separation */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark .mobile-menu-glass {
+  background: rgba(17, 24, 39, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .smart-liquid-glass {
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+  }
+  
+  .pop-liquid-glass:hover {
+    transform: translateY(-1px) scale(1.01);
+  }
+  
+  .social-glass:hover {
+    transform: translateY(-0.5px) scale(1.03);
+  }
+}
+
+/* Performance optimizations */
+.smart-liquid-glass,
+.pop-liquid-glass,
+.social-glass {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* Enhanced RGB line states based on scroll */
+.rgb-line.scrolled {
+  animation: rgb-rainbow-flow 4s linear infinite, rgb-pulse 2s ease-in-out infinite;
+  height: 4px;
+  filter: brightness(1.1) saturate(1.2);
+}
+
+.rgb-line.scroll-fast {
+  animation: rgb-rainbow-flow 3s linear infinite, rgb-pulse 1.5s ease-in-out infinite;
+  height: 5px;
+  filter: brightness(1.3) saturate(1.4);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+}
+
+/* Theme compatibility */
+.dark .rgb-line {
+  filter: brightness(0.9) saturate(1.1);
+}
+
+.dark .rgb-line.scrolled {
+  filter: brightness(1) saturate(1.3);
+}
+
+.dark .rgb-line.scroll-fast {
+  filter: brightness(1.2) saturate(1.5);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .rgb-line {
+    height: 3px;
+    animation: rgb-rainbow-flow 8s linear infinite;
+  }
+
+  .rgb-line.scrolled {
+    height: 3px;
+    animation: rgb-rainbow-flow 6s linear infinite;
+  }
+
+  .rgb-line.scroll-fast {
+    height: 4px;
+    animation: rgb-rainbow-flow 4s linear infinite;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+  }
+
+  /* Smaller border-radius on mobile for better proportions */
+  .smart-liquid-glass {
+    border-radius: 0 0 8px 8px;
+  }
+
+  .smart-liquid-glass.scrolled {
+    border-radius: 0 0 10px 10px;
+  }
+}
+
+/* Tablet optimizations */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .smart-liquid-glass {
+    border-radius: 0 0 10px 10px;
+  }
+
+  .smart-liquid-glass.scrolled {
+    border-radius: 0 0 14px 14px;
+  }
+}
+
+/* Large desktop optimizations */
+@media (min-width: 1440px) {
+  .smart-liquid-glass {
+    border-radius: 0 0 14px 14px;
+  }
+
+  .smart-liquid-glass.scrolled {
+    border-radius: 0 0 18px 18px;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .rgb-line {
+    background: linear-gradient(
+      90deg,
+      #ff0000 0%,
+      #00ff00 33%,
+      #0000ff 66%,
+      #ff0000 100%
+    );
+    filter: brightness(1.2) saturate(1.5);
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .rgb-line {
+    animation: none !important;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6) !important;
+    height: 2px !important;
+    filter: none !important;
+    box-shadow: none !important;
+  }
+
+  .rgb-line.scrolled,
+  .rgb-line.scroll-fast {
+    animation: none !important;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6) !important;
+    height: 2px !important;
+    filter: none !important;
+    box-shadow: none !important;
+  }
+
+  .smart-liquid-glass,
+  .smart-liquid-glass::before,
+  .smart-liquid-glass::after,
+  .pop-liquid-glass,
+  .social-glass,
+  .nav-glass {
+    transition: none !important;
+  }
+
+  .smart-liquid-glass::after {
+    opacity: 0 !important;
+  }
+
+  .pop-liquid-glass:hover,
+  .social-glass:hover {
+    transform: none;
+  }
+}

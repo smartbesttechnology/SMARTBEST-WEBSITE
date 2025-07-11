@@ -1,5 +1,7 @@
 /* Import Hero Animations */
 @import './styles/hero-animations.css';
+/* Import Header Glass Morphism Effects */
+@import './styles/header-glass-morphism.css';
 
 @tailwind base;
 @tailwind components;

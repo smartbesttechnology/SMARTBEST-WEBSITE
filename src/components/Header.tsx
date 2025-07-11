@@ -5,13 +5,49 @@ import ThemeToggle from './ThemeToggle';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [scrollVelocity, setScrollVelocity] = useState(0);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const scrollY = window.scrollY;
+          const windowHeight = window.innerHeight;
+          const documentHeight = document.documentElement.scrollHeight;
+
+          // Calculate scroll velocity for dynamic effects
+          const velocity = Math.abs(scrollY - lastScrollY);
+          setScrollVelocity(velocity);
+          setLastScrollY(scrollY);
+
+          setIsScrolled(scrollY > 50);
+
+          // Enhanced scroll progress calculation
+          const maxScroll = documentHeight - windowHeight;
+          const progress = maxScroll > 0 ? Math.min(scrollY / maxScroll, 1) : 0;
+          setScrollProgress(progress);
+
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
-    window.addEventListener('scroll', handleScroll);
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
+
+  // Velocity decay effect for smoother animations
+  useEffect(() => {
+    const decayInterval = setInterval(() => {
+      setScrollVelocity(prev => Math.max(0, prev * 0.9));
+    }, 50);
+
+    return () => clearInterval(decayInterval);
   }, []);
 
   const navItems = [
@@ -23,11 +59,25 @@ const Header = () => {
   ];
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled
-        ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg'
-        : 'bg-transparent'
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 smart-liquid-glass ${
+      isScrolled ? 'scrolled' : ''
     }`}>
+      {/* Enhanced RGB Color-shifting Progress Line */}
+      <div
+        className={`rgb-line ${isScrolled ? 'scrolled' : ''} ${scrollVelocity > 10 ? 'scroll-fast' : ''}`}
+        style={{
+          '--scroll-progress': `${scrollProgress * 100}%`,
+          opacity: Math.max(0.6, 0.7 + (scrollProgress * 0.4)),
+          animationDuration: `${Math.max(3, 8 - (scrollProgress * 3) - (scrollVelocity * 0.1))}s`,
+          filter: `brightness(${1 + (scrollProgress * 0.3)}) saturate(${1 + (scrollProgress * 0.5)})`,
+          transform: `scaleY(${1 + (scrollProgress * 0.25)})`
+        } as React.CSSProperties}
+        role="progressbar"
+        aria-label="Page scroll progress"
+        aria-valuenow={Math.round(scrollProgress * 100)}
+        aria-valuemin={0}
+        aria-valuemax={100}
+      ></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
@@ -45,7 +95,7 @@ const Header = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className={`font-medium transition-colors hover:text-blue-600 dark:hover:text-blue-400 ${
+                className={`font-medium nav-glass ${
                   isScrolled
                     ? 'text-gray-700 dark:text-gray-200'
                     : 'text-white'
@@ -64,7 +114,7 @@ const Header = () => {
                 href="https://github.com/smartbesttechnology"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`p-2 rounded-lg transition-all duration-200 hover:scale-110 ${
+                className={`social-glass p-2 ${
                   isScrolled
                     ? 'text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400'
                     : 'text-white/80 hover:text-white'
@@ -78,7 +128,7 @@ const Header = () => {
                 href="https://x.com/smartbesttech"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`p-2 rounded-lg transition-all duration-200 hover:scale-110 ${
+                className={`social-glass p-2 ${
                   isScrolled
                     ? 'text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400'
                     : 'text-white/80 hover:text-white'
@@ -92,7 +142,7 @@ const Header = () => {
                 href="https://www.instagram.com/smartbesttech"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`p-2 rounded-lg transition-all duration-200 hover:scale-110 ${
+                className={`social-glass p-2 ${
                   isScrolled
                     ? 'text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400'
                     : 'text-white/80 hover:text-white'
@@ -109,7 +159,7 @@ const Header = () => {
             <ThemeToggle size="md" />
             <a
               href="#contact"
-              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-2 rounded-full font-medium hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+              className="pop-liquid-glass bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-2 font-medium"
             >
               Get Started
             </a>
@@ -133,7 +183,7 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden bg-white dark:bg-gray-800 rounded-lg shadow-lg mt-2 py-4 border border-gray-200 dark:border-gray-700">
+          <div className="md:hidden mobile-menu-glass mt-2 py-4">
             {navItems.map((item) => (
               <a
                 key={item.name}
@@ -177,7 +227,7 @@ const Header = () => {
               </div>
               <a
                 href="#contact"
-                className="block w-full text-center bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-2 rounded-full font-medium transition-all duration-200"
+                className="block w-full text-center pop-liquid-glass bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-2 font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Get Started
