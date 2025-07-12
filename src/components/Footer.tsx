@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   Mail,
   Phone,
@@ -14,9 +15,36 @@ import { useGeolocation } from '../hooks/useGeolocation';
 
 const Footer = () => {
   const { contactInfo } = useGeolocation();
-  
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // Helper function to render links with proper React Router navigation
+  const renderLink = (link: { name: string; href: string }) => {
+    const isInternalRoute = link.href.startsWith('/') && !link.href.startsWith('/#');
+
+    if (isInternalRoute) {
+      // Use React Router Link for internal routes
+      return (
+        <Link
+          to={link.href}
+          className="text-gray-400 hover:text-white transition-colors text-sm"
+        >
+          {link.name}
+        </Link>
+      );
+    } else {
+      // Use regular anchor tag for hash links and external links
+      return (
+        <a
+          href={link.href}
+          className="text-gray-400 hover:text-white transition-colors text-sm"
+        >
+          {link.name}
+        </a>
+      );
+    }
   };
 
   const footerLinks = {
@@ -38,11 +66,10 @@ const Footer = () => {
       { name: 'Testimonials', href: '#testimonials' }
     ],
     support: [
-      { name: 'Contact Us', href: '#contact' },
       { name: 'Help Center', href: '#' },
       { name: 'Documentation', href: '#' },
-      { name: 'Privacy Policy', href: '#' },
-      { name: 'Terms of Service', href: '#' },
+      { name: 'Privacy Policy', href: '/privacy-policy' },
+      { name: 'Terms of Service', href: '/terms-of-service' },
       { name: 'Cookie Policy', href: '#' }
     ]
   };
@@ -94,12 +121,7 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-gray-400 hover:text-white transition-colors text-sm"
-                  >
-                    {link.name}
-                  </a>
+                  {renderLink(link)}
                 </li>
               ))}
             </ul>
@@ -111,12 +133,7 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-gray-400 hover:text-white transition-colors text-sm"
-                  >
-                    {link.name}
-                  </a>
+                  {renderLink(link)}
                 </li>
               ))}
             </ul>
@@ -128,12 +145,7 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.support.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-gray-400 hover:text-white transition-colors text-sm"
-                  >
-                    {link.name}
-                  </a>
+                  {renderLink(link)}
                 </li>
               ))}
             </ul>

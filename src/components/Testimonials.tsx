@@ -129,8 +129,8 @@ const Testimonials = () => {
               <div className="text-blue-100">On-Time Delivery</div>
             </div>
             <div>
-              <div className="text-4xl font-bold mb-2">22+</div>
-              <div className="text-blue-100">Years Experience</div>
+              <div className="text-3xl font-bold mb-2">Trusted by</div>
+              <div className="text-blue-100">Businesses Worldwide</div>
             </div>
           </div>
         </div>

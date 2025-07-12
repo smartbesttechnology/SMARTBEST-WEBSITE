@@ -181,7 +181,7 @@ const AIBusinessAutomation = () => {
                   href="#contact"
                   className="inline-flex items-center space-x-2 text-blue-600 font-semibold hover:text-blue-700 transition-colors group-hover:translate-x-1 transform duration-200"
                 >
-                  <span>Request Demo</span>
+                  <span>Book a Call</span>
                   <ArrowRight className="h-4 w-4" />
                 </a>
               </div>
@@ -223,21 +223,12 @@ const AIBusinessAutomation = () => {
             <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
               Get more clients, reduce stress, and automate your operations with our AI solutions. Setup typically takes 3-5 days depending on your package.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex justify-center">
               <a
-                href="#contact"
+                href="#services"
                 className="inline-flex items-center space-x-2 bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
               >
-                <span>Request Demo</span>
-                <ArrowRight className="h-5 w-5" />
-              </a>
-              <a
-                href="https://wa.me/2348121096818"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center space-x-2 bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
-              >
-                <span>WhatsApp +234 812 109 6818</span>
+                <span>Book a Call</span>
                 <ArrowRight className="h-5 w-5" />
               </a>
             </div>

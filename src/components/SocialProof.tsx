@@ -68,12 +68,30 @@ const SocialProof = () => {
   ];
 
   const clientLogos = [
-    { name: 'TechCorp', logo: 'https://via.placeholder.com/120x60/3B82F6/FFFFFF?text=TechCorp' },
-    { name: 'InnovateLab', logo: 'https://via.placeholder.com/120x60/8B5CF6/FFFFFF?text=InnovateLab' },
-    { name: 'GrowthCo', logo: 'https://via.placeholder.com/120x60/10B981/FFFFFF?text=GrowthCo' },
-    { name: 'ScaleUp', logo: 'https://via.placeholder.com/120x60/F59E0B/FFFFFF?text=ScaleUp' },
-    { name: 'NextGen', logo: 'https://via.placeholder.com/120x60/EF4444/FFFFFF?text=NextGen' },
-    { name: 'FutureTech', logo: 'https://via.placeholder.com/120x60/6366F1/FFFFFF?text=FutureTech' }
+    {
+      name: 'TechCorp',
+      logo: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjYwIiB2aWV3Qm94PSIwIDAgMTIwIDYwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMTIwIiBoZWlnaHQ9IjYwIiByeD0iOCIgZmlsbD0iIzNCODJGNiIvPgo8dGV4dCB4PSI2MCIgeT0iMzUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5UZWNoQ29ycDwvdGV4dD4KPHN2Zz4K'
+    },
+    {
+      name: 'InnovateLab',
+      logo: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjYwIiB2aWV3Qm94PSIwIDAgMTIwIDYwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMTIwIiBoZWlnaHQ9IjYwIiByeD0iOCIgZmlsbD0iIzhCNUNGNiIvPgo8dGV4dCB4PSI2MCIgeT0iMzUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5Jbm5vdmF0ZUxhYjwvdGV4dD4KPHN2Zz4K'
+    },
+    {
+      name: 'GrowthCo',
+      logo: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjYwIiB2aWV3Qm94PSIwIDAgMTIwIDYwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMTIwIiBoZWlnaHQ9IjYwIiByeD0iOCIgZmlsbD0iIzEwQjk4MSIvPgo8dGV4dCB4PSI2MCIgeT0iMzUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5Hcm93dGhDbzwvdGV4dD4KPHN2Zz4K'
+    },
+    {
+      name: 'ScaleUp',
+      logo: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjYwIiB2aWV3Qm94PSIwIDAgMTIwIDYwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMTIwIiBoZWlnaHQ9IjYwIiByeD0iOCIgZmlsbD0iI0Y1OUUwQiIvPgo8dGV4dCB4PSI2MCIgeT0iMzUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5TY2FsZVVwPC90ZXh0Pgo8c3ZnPgo='
+    },
+    {
+      name: 'NextGen',
+      logo: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjYwIiB2aWV3Qm94PSIwIDAgMTIwIDYwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMTIwIiBoZWlnaHQ9IjYwIiByeD0iOCIgZmlsbD0iI0VGNDQ0NCIvPgo8dGV4dCB4PSI2MCIgeT0iMzUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5OZXh0R2VuPC90ZXh0Pgo8c3ZnPgo='
+    },
+    {
+      name: 'FutureTech',
+      logo: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjYwIiB2aWV3Qm94PSIwIDAgMTIwIDYwIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cmVjdCB3aWR0aD0iMTIwIiBoZWlnaHQ9IjYwIiByeD0iOCIgZmlsbD0iIzYzNjZGMSIvPgo8dGV4dCB4PSI2MCIgeT0iMzUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IndoaXRlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5GdXR1cmVUZWNoPC90ZXh0Pgo8c3ZnPgo='
+    }
   ];
 
   return (
@@ -158,13 +176,29 @@ const SocialProof = () => {
           <h3 className="text-2xl font-bold text-gray-900 mb-8">
             Trusted by Leading Companies
           </h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center opacity-60 hover:opacity-100 transition-opacity duration-300">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 items-center">
             {clientLogos.map((client, index) => (
-              <div key={index} className="flex justify-center">
+              <div
+                key={index}
+                className="group flex justify-center items-center p-4 bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 transform hover:scale-105 border border-gray-100 hover:border-blue-200"
+              >
                 <img
                   src={client.logo}
-                  alt={client.name}
-                  className="h-12 object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                  alt={`${client.name} - Trusted partner of SmartBest Technology`}
+                  className="h-10 w-auto max-w-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300 opacity-70 group-hover:opacity-100"
+                  loading="lazy"
+                  onError={(e) => {
+                    // Fallback to a simple text-based logo if image fails to load
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                    const parent = target.parentElement;
+                    if (parent && !parent.querySelector('.fallback-logo')) {
+                      const fallback = document.createElement('div');
+                      fallback.className = 'fallback-logo text-gray-600 font-semibold text-sm px-3 py-2 bg-gradient-to-r from-gray-100 to-gray-200 rounded-lg';
+                      fallback.textContent = client.name;
+                      parent.appendChild(fallback);
+                    }
+                  }}
                 />
               </div>
             ))}
@@ -185,7 +219,7 @@ const SocialProof = () => {
                 href="#contact"
                 className="inline-flex items-center space-x-2 bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
               >
-                <span>Get Your Free Demo</span>
+                <span>Book a Strategic Call</span>
                 <ArrowRight className="h-5 w-5" />
               </a>
               <a

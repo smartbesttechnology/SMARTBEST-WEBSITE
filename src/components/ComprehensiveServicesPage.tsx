@@ -335,21 +335,12 @@ const ComprehensiveServicesPage = () => {
             Get more clients, automate operations, and reduce stress with our comprehensive technology solutions. 
             Setup typically takes 3-5 days depending on your package.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex justify-center">
             <a
-              href="#contact"
+              href="#services"
               className="inline-flex items-center space-x-2 bg-white text-blue-600 px-8 py-4 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
             >
               <span>Get Free Consultation</span>
-              <ArrowRight className="h-5 w-5" />
-            </a>
-            <a
-              href="https://wa.me/2348121096818"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center space-x-2 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
-            >
-              <span>WhatsApp +234 812 109 6818</span>
               <ArrowRight className="h-5 w-5" />
             </a>
           </div>

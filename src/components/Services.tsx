@@ -159,21 +159,12 @@ const Services = () => {
             <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
               Discover how our AI Business Automation solutions can transform your operations, increase conversions, and scale your business efficiently.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex justify-center">
               <a
-                href="#contact"
+                href="#services"
                 className="inline-flex items-center space-x-2 bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
               >
-                <span>Request Demo</span>
-                <ArrowRight className="h-5 w-5" />
-              </a>
-              <a
-                href="https://wa.me/12602340752"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center space-x-2 bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
-              >
-                <span>WhatsApp Us</span>
+                <span>Book a Call</span>
                 <ArrowRight className="h-5 w-5" />
               </a>
             </div>

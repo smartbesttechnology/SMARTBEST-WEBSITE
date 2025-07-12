@@ -55,29 +55,39 @@ const Header = () => {
     { name: 'Services', href: '#services' },
     { name: 'About', href: '#about' },
     { name: 'Portfolio', href: '#portfolio' },
-    { name: 'Contact', href: '#contact' },
   ];
+
+
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 smart-liquid-glass ${
       isScrolled ? 'scrolled' : ''
     }`}>
-      {/* Enhanced RGB Color-shifting Progress Line */}
-      <div
-        className={`rgb-line ${isScrolled ? 'scrolled' : ''} ${scrollVelocity > 10 ? 'scroll-fast' : ''}`}
-        style={{
-          '--scroll-progress': `${scrollProgress * 100}%`,
-          opacity: Math.max(0.6, 0.7 + (scrollProgress * 0.4)),
-          animationDuration: `${Math.max(3, 8 - (scrollProgress * 3) - (scrollVelocity * 0.1))}s`,
-          filter: `brightness(${1 + (scrollProgress * 0.3)}) saturate(${1 + (scrollProgress * 0.5)})`,
-          transform: `scaleY(${1 + (scrollProgress * 0.25)})`
-        } as React.CSSProperties}
-        role="progressbar"
-        aria-label="Page scroll progress"
-        aria-valuenow={Math.round(scrollProgress * 100)}
-        aria-valuemin={0}
-        aria-valuemax={100}
-      ></div>
+      {/* Simple Gradient Page Loading Indicator */}
+      <div className="absolute top-0 left-0 right-0 h-0.5 bg-gray-200/10 dark:bg-gray-800/10 overflow-hidden">
+        <div
+          className="h-full bg-gradient-to-r from-blue-500 via-purple-500 to-blue-600 transition-all duration-300 ease-out relative"
+          style={{
+            width: `${scrollProgress * 100}%`,
+            opacity: scrollProgress > 0 ? 1 : 0,
+            boxShadow: scrollProgress > 0 ? '0 0 6px rgba(59, 130, 246, 0.5), 0 0 12px rgba(147, 51, 234, 0.3)' : 'none'
+          }}
+          role="progressbar"
+          aria-label="Page scroll progress"
+          aria-valuenow={Math.round(scrollProgress * 100)}
+          aria-valuemin={0}
+          aria-valuemax={100}
+        >
+          {/* Subtle shimmer effect */}
+          <div
+            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+            style={{
+              transform: `translateX(${scrollProgress * 200 - 100}%)`,
+              transition: 'transform 0.3s ease-out'
+            }}
+          ></div>
+        </div>
+      </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
@@ -158,7 +168,7 @@ const Header = () => {
 
             <ThemeToggle size="md" />
             <a
-              href="#contact"
+              href="#services"
               className="pop-liquid-glass bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-2 font-medium"
             >
               Get Started
@@ -226,7 +236,7 @@ const Header = () => {
                 </a>
               </div>
               <a
-                href="#contact"
+                href="#services"
                 className="block w-full text-center pop-liquid-glass bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-2 font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >

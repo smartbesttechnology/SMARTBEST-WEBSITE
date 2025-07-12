@@ -68,6 +68,23 @@ const Hero = () => {
 
   const currentTab = heroTabs.find(tab => tab.id === activeTab) || heroTabs[0];
 
+  // Function to render title with gradient AI
+  const renderTitleWithGradientAI = (title: string) => {
+    const parts = title.split(' AI');
+    if (parts.length === 2) {
+      return (
+        <>
+          {parts[0]}{' '}
+          <span className="bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
+            AI
+          </span>
+          {parts[1]}
+        </>
+      );
+    }
+    return title;
+  };
+
   return (
     <section id="home" className="relative min-h-screen overflow-hidden transition-colors duration-300">
       {/* Dynamic Background */}
@@ -104,7 +121,7 @@ const Hero = () => {
                   transition={{ duration: 0.3 }}
                   className="text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-white"
                 >
-                  {currentTab.title}
+                  {renderTitleWithGradientAI(currentTab.title)}
                 </motion.h1>
               </AnimatePresence>
             </FadeInUp>
@@ -173,7 +190,7 @@ const Hero = () => {
                   href="#contact"
                   className="inline-flex items-center justify-center space-x-3 bg-white text-gray-900 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
                 >
-                  <span>Request Demo</span>
+                  <span>Book a Call</span>
                   <ArrowRight className="h-5 w-5" />
                 </a>
                 <a
@@ -198,11 +215,11 @@ const Hero = () => {
                 <span className="text-sm font-medium text-gray-700">Online</span>
               </div>
 
-              {/* Years Experience Badge */}
+              {/* Trusted Badge */}
               <div className="absolute bottom-4 right-4 z-20 bg-blue-600 text-white rounded-lg px-6 py-4 shadow-lg">
                 <div className="text-center">
-                  <div className="text-3xl font-bold">22+</div>
-                  <div className="text-sm opacity-90">Years Experience</div>
+                  <div className="text-lg font-bold">Trusted by</div>
+                  <div className="text-sm opacity-90">Businesses Worldwide</div>
                 </div>
               </div>
 
@@ -264,8 +281,8 @@ const Hero = () => {
               <div className="text-white/80 text-sm">AI Support Available</div>
             </div>
             <div className="transform hover:scale-110 transition-all duration-300">
-              <div className="text-3xl font-bold text-white mb-2">22+</div>
-              <div className="text-white/80 text-sm">Years Experience</div>
+              <div className="text-2xl font-bold text-white mb-2">Trusted by</div>
+              <div className="text-white/80 text-sm">Businesses Worldwide</div>
             </div>
           </div>
         </div>
