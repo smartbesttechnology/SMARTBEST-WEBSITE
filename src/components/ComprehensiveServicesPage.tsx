@@ -19,6 +19,7 @@ import {
   Target,
   Zap
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const ComprehensiveServicesPage = () => {
   const allServices = [
@@ -336,13 +337,13 @@ const ComprehensiveServicesPage = () => {
             Setup typically takes 3-5 days depending on your package.
           </p>
           <div className="flex justify-center">
-            <a
-              href="#services"
+            <Link
+              to="/booking"
               className="inline-flex items-center space-x-2 bg-white text-blue-600 px-8 py-4 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
             >
-              <span>Get Free Consultation</span>
+              <span>Book a Strategic Call</span>
               <ArrowRight className="h-5 w-5" />
-            </a>
+            </Link>
           </div>
           <div className="mt-6 text-blue-100">
             smartbesttechnology.com | info@smartbesttechnology.com

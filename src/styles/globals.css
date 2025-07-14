@@ -180,3 +180,73 @@ h1, h2, h3, h4, h5, h6 {
     @apply bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg;
   }
 }
+
+/* Mobile-specific optimizations */
+@media (max-width: 767px) {
+  /* Ensure proper spacing for fixed header */
+  #home {
+    padding-top: 5rem; /* 80px */
+  }
+
+  /* Optimize text sizes for mobile readability */
+  .hero-title {
+    font-size: clamp(1.875rem, 8vw, 3rem); /* 30px to 48px */
+    line-height: 1.2;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1rem, 4vw, 1.125rem); /* 16px to 18px */
+    line-height: 1.5;
+  }
+
+  /* Optimize button sizes for touch */
+  .hero-cta-button {
+    min-height: 44px; /* iOS recommended touch target */
+    padding: 0.75rem 1.5rem;
+  }
+
+  /* Optimize tab buttons for mobile */
+  .hero-tab-button {
+    min-height: 40px;
+    font-size: 0.875rem;
+  }
+
+  /* Prevent horizontal scroll */
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Optimize viewport for mobile */
+  .hero-container {
+    min-height: calc(100vh - 5rem);
+    padding-top: 1rem;
+  }
+}
+
+/* Small mobile devices (320px and up) */
+@media (max-width: 374px) {
+  .hero-title {
+    font-size: clamp(1.5rem, 7vw, 2.25rem); /* 24px to 36px */
+  }
+
+  .hero-tab-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+  }
+
+  .hero-cta-button {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* Landscape mobile optimization */
+@media (max-width: 767px) and (orientation: landscape) {
+  #home {
+    padding-top: 4rem; /* Reduced for landscape */
+  }
+
+  .hero-container {
+    min-height: calc(100vh - 4rem);
+  }
+}

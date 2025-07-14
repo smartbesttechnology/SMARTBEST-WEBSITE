@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { ArrowRight, Bot, Code, TrendingUp, MessageCircle, Shield } from 'lucide-react';
 import { FadeInUp, ScaleIn } from './animations';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -106,10 +107,10 @@ const Hero = () => {
         </motion.div>
       </AnimatePresence>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-screen flex items-center">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-screen flex items-center pt-20 sm:pt-24 md:pt-0 hero-container">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center w-full">
           {/* Left Content */}
-          <div className="space-y-8">
+          <div className="space-y-6 sm:space-y-8">
             {/* Main Heading */}
             <FadeInUp delay={0.2}>
               <AnimatePresence mode="wait">
@@ -119,7 +120,7 @@ const Hero = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.3 }}
-                  className="text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-white"
+                  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-white hero-title"
                 >
                   {renderTitleWithGradientAI(currentTab.title)}
                 </motion.h1>
@@ -135,7 +136,7 @@ const Hero = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.3, delay: 0.1 }}
-                  className="text-lg lg:text-xl text-blue-100 leading-relaxed max-w-lg font-medium"
+                  className="text-base sm:text-lg lg:text-xl text-blue-100 leading-relaxed max-w-lg font-medium hero-subtitle"
                 >
                   {currentTab.subtitle}
                 </motion.p>
@@ -160,14 +161,14 @@ const Hero = () => {
 
             {/* Tab Navigation */}
             <FadeInUp delay={0.6}>
-              <div className="flex flex-wrap gap-3 mb-8">
+              <div className="flex flex-wrap gap-2 sm:gap-3 mb-6 sm:mb-8">
                 {heroTabs.map((tab) => {
                   const IconComponent = tab.icon;
                   return (
                     <motion.button
                       key={tab.id}
                       onClick={() => setActiveTab(tab.id)}
-                      className={`hero-tab-button flex items-center space-x-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
+                      className={`hero-tab-button flex items-center space-x-2 px-4 sm:px-6 py-2 sm:py-3 rounded-full font-semibold transition-all duration-300 text-sm sm:text-base ${
                         activeTab === tab.id
                           ? 'active bg-white text-gray-900 shadow-lg scale-105'
                           : 'bg-white/10 text-white hover:bg-white/20'
@@ -186,18 +187,18 @@ const Hero = () => {
             {/* CTA Buttons */}
             <FadeInUp delay={0.8}>
               <div className="flex flex-col sm:flex-row gap-4">
-                <a
-                  href="#contact"
-                  className="inline-flex items-center justify-center space-x-3 bg-white text-gray-900 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+                <Link
+                  to="/booking"
+                  className="inline-flex items-center justify-center space-x-3 bg-white text-gray-900 hover:bg-gray-100 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hero-cta-button"
                 >
-                  <span>Book a Call</span>
+                  <span>Book a Strategic Call</span>
                   <ArrowRight className="h-5 w-5" />
-                </a>
+                </Link>
                 <a
                   href="https://wa.me/2348121096818"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center space-x-3 bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
+                  className="inline-flex items-center justify-center space-x-3 bg-green-500 hover:bg-green-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold text-base sm:text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hero-cta-button"
                 >
                   <span>WhatsApp Us Now</span>
                   <ArrowRight className="h-5 w-5" />
@@ -228,7 +229,7 @@ const Hero = () => {
                 <img
                   src="https://i.postimg.cc/0QLzJyH9/840018042.png"
                   alt="Smart Best Technology Team"
-                  className="w-full h-[500px] lg:h-[600px] object-cover"
+                  className="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
               </div>

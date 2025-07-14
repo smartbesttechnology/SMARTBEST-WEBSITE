@@ -1,5 +1,6 @@
 import React from 'react';
 import { Star, Quote } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Testimonials = () => {
   const testimonials = [
@@ -143,12 +144,12 @@ const Testimonials = () => {
           <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
             Let's work together to create your own success story. Contact us today to discuss your project and see how we can help you achieve your goals.
           </p>
-          <a
-            href="#contact"
+          <Link
+            to="/booking"
             className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
           >
-            <span>Get Started Today</span>
-          </a>
+            <span>Book a Strategic Call</span>
+          </Link>
         </div>
       </div>
     </section>

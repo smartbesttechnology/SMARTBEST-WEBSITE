@@ -15,6 +15,7 @@ import {
   Monitor,
   Tablet
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const MobileWebDevelopment = () => {
   const developmentServices = [
@@ -218,13 +219,13 @@ const MobileWebDevelopment = () => {
                 </div>
 
                 {/* CTA */}
-                <a
-                  href="#contact"
+                <Link
+                  to="/booking"
                   className="inline-flex items-center space-x-2 text-purple-600 font-semibold hover:text-purple-700 transition-colors group-hover:translate-x-1 transform duration-200"
                 >
-                  <span>Get Free Consultation</span>
+                  <span>Book a Strategic Call</span>
                   <ArrowRight className="h-4 w-4" />
-                </a>
+                </Link>
               </div>
             );
           })}
@@ -286,13 +287,13 @@ const MobileWebDevelopment = () => {
               Get a custom mobile or web application built with modern technologies. Setup typically takes 2-8 weeks depending on complexity.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="#contact"
+              <Link
+                to="/booking"
                 className="inline-flex items-center space-x-2 bg-white text-purple-600 px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
               >
-                <span>Get Free Consultation</span>
+                <span>Book a Strategic Call</span>
                 <ArrowRight className="h-5 w-5" />
-              </a>
+              </Link>
               <a
                 href="https://wa.me/2348121096818"
                 target="_blank"

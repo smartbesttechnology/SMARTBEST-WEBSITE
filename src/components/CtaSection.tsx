@@ -51,11 +51,11 @@ const CtaSection: React.FC = () => {
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.7, delay: 0.4 }}
           >
-            <Link 
-              href="/contact"
+            <Link
+              to="/booking"
               className="btn bg-white text-primary hover:bg-gray-100 hover:text-primary/90 shadow-lg hover:shadow-xl transition-all duration-300 text-lg px-8 py-4"
             >
-              Schedule a Free Consultation
+              Book a Strategic Call
             </Link>
           </motion.div>
         </div>

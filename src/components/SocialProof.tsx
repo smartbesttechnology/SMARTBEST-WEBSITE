@@ -95,14 +95,14 @@ const SocialProof = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-white dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
             Trusted by <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Industry Leaders</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             Join hundreds of businesses that have transformed their operations with our AI Business Automation solutions.
           </p>
         </div>
@@ -113,11 +113,11 @@ const SocialProof = () => {
             const IconComponent = stat.icon;
             return (
               <div key={index} className="text-center group">
-                <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-6 mb-4 group-hover:shadow-lg transition-all duration-300">
-                  <IconComponent className="h-8 w-8 text-blue-600 mx-auto mb-4" />
-                  <div className="text-3xl font-bold text-gray-900 mb-2">{stat.value}</div>
-                  <div className="text-sm font-semibold text-gray-700 mb-1">{stat.label}</div>
-                  <div className="text-xs text-gray-500">{stat.description}</div>
+                <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-2xl p-6 mb-4 group-hover:shadow-lg transition-all duration-300">
+                  <IconComponent className="h-8 w-8 text-blue-600 dark:text-blue-400 mx-auto mb-4" />
+                  <div className="text-3xl font-bold text-gray-900 dark:text-white mb-2">{stat.value}</div>
+                  <div className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">{stat.label}</div>
+                  <div className="text-xs text-gray-500 dark:text-gray-400">{stat.description}</div>
                 </div>
               </div>
             );
@@ -129,10 +129,10 @@ const SocialProof = () => {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="bg-gray-50 rounded-2xl p-8 hover:bg-white hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
+              className="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8 hover:bg-white dark:hover:bg-gray-700 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 dark:border-gray-700"
             >
               {/* Quote Icon */}
-              <Quote className="h-8 w-8 text-blue-600 mb-4" />
+              <Quote className="h-8 w-8 text-blue-600 dark:text-blue-400 mb-4" />
               
               {/* Rating */}
               <div className="flex space-x-1 mb-4">
@@ -142,15 +142,15 @@ const SocialProof = () => {
               </div>
 
               {/* Content */}
-              <p className="text-gray-700 mb-6 leading-relaxed italic">
+              <p className="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed italic">
                 "{testimonial.content}"
               </p>
 
               {/* Results */}
-              <div className="bg-green-50 rounded-lg p-3 mb-6">
+              <div className="bg-green-50 dark:bg-green-900/20 rounded-lg p-3 mb-6">
                 <div className="flex items-center space-x-2">
                   <TrendingUp className="h-4 w-4 text-green-600" />
-                  <span className="text-green-700 font-semibold text-sm">{testimonial.results}</span>
+                  <span className="text-green-700 dark:text-green-400 font-semibold text-sm">{testimonial.results}</span>
                 </div>
               </div>
 
@@ -162,9 +162,9 @@ const SocialProof = () => {
                   className="w-12 h-12 rounded-full object-cover"
                 />
                 <div>
-                  <div className="font-semibold text-gray-900">{testimonial.name}</div>
-                  <div className="text-sm text-gray-600">{testimonial.title}</div>
-                  <div className="text-xs text-blue-600">{testimonial.company}</div>
+                  <div className="font-semibold text-gray-900 dark:text-white">{testimonial.name}</div>
+                  <div className="text-sm text-gray-600 dark:text-gray-300">{testimonial.title}</div>
+                  <div className="text-xs text-blue-600 dark:text-blue-400">{testimonial.company}</div>
                 </div>
               </div>
             </div>
@@ -173,14 +173,14 @@ const SocialProof = () => {
 
         {/* Client Logos */}
         <div className="text-center mb-12">
-          <h3 className="text-2xl font-bold text-gray-900 mb-8">
+          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">
             Trusted by Leading Companies
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 items-center">
             {clientLogos.map((client, index) => (
               <div
                 key={index}
-                className="group flex justify-center items-center p-4 bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 transform hover:scale-105 border border-gray-100 hover:border-blue-200"
+                className="group flex justify-center items-center p-4 bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 transform hover:scale-105 border border-gray-100 dark:border-gray-700 hover:border-blue-200 dark:hover:border-blue-500"
               >
                 <img
                   src={client.logo}

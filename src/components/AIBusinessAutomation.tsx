@@ -15,6 +15,7 @@ import {
   Phone,
   Globe
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const AIBusinessAutomation = () => {
   const aiServices = [
@@ -177,13 +178,13 @@ const AIBusinessAutomation = () => {
                 </ul>
 
                 {/* CTA */}
-                <a
-                  href="#contact"
+                <Link
+                  to="/booking"
                   className="inline-flex items-center space-x-2 text-blue-600 font-semibold hover:text-blue-700 transition-colors group-hover:translate-x-1 transform duration-200"
                 >
-                  <span>Book a Call</span>
+                  <span>Book a Strategic Call</span>
                   <ArrowRight className="h-4 w-4" />
-                </a>
+                </Link>
               </div>
             );
           })}
@@ -224,13 +225,13 @@ const AIBusinessAutomation = () => {
               Get more clients, reduce stress, and automate your operations with our AI solutions. Setup typically takes 3-5 days depending on your package.
             </p>
             <div className="flex justify-center">
-              <a
-                href="#services"
+              <Link
+                to="/booking"
                 className="inline-flex items-center space-x-2 bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
               >
-                <span>Book a Call</span>
+                <span>Book Your AI Consultation</span>
                 <ArrowRight className="h-5 w-5" />
-              </a>
+              </Link>
             </div>
             <div className="mt-4 text-blue-100 text-sm">
               smartbesttechnology.com | info@smartbesttechnology.com

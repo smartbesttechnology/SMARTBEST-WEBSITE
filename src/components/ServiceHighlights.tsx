@@ -1,8 +1,8 @@
 import React from 'react';
-import { 
-  Brain, 
-  Smartphone, 
-  Send, 
+import {
+  Brain,
+  Smartphone,
+  Send,
   TrendingUp,
   ArrowRight,
   CheckCircle,
@@ -11,6 +11,7 @@ import {
   Target,
   MessageCircle
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const ServiceHighlights = () => {
   const highlights = [
@@ -70,13 +71,13 @@ const ServiceHighlights = () => {
         <div className="text-center mb-16">
           <div className="inline-flex items-center space-x-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium mb-4">
             <Zap className="h-4 w-4" />
-            <span>Complete Business Solutions</span>
+            <span>Our Services</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Everything You Need to <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Scale Your Business</span>
+            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Technology Solutions</span> for Your Business
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            From AI automation to custom apps, Telegram solutions to lead generation - we provide comprehensive technology solutions that drive real business results.
+            We provide comprehensive AI automation, custom development, and digital solutions that drive real business results.
           </p>
         </div>
 
@@ -123,13 +124,13 @@ const ServiceHighlights = () => {
 
                 {/* CTA */}
                 <div className="flex space-x-3">
-                  <a
-                    href="#contact"
+                  <Link
+                    to="/booking"
                     className="flex-1 inline-flex items-center justify-center space-x-2 bg-gray-900 hover:bg-gray-800 text-white px-4 py-3 rounded-lg font-semibold transition-all duration-200 text-sm"
                   >
-                    <span>Get Started</span>
+                    <span>Book a Strategic Call</span>
                     <ArrowRight className="h-4 w-4" />
-                  </a>
+                  </Link>
                   <a
                     href="https://wa.me/2348121096818"
                     target="_blank"
@@ -182,13 +183,13 @@ const ServiceHighlights = () => {
               Get more clients, automate operations, and reduce stress with our comprehensive technology solutions. Setup typically takes 3-5 days depending on your package.
             </p>
             <div className="flex justify-center">
-              <a
-                href="#services"
+              <Link
+                to="/booking"
                 className="inline-flex items-center space-x-2 bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
               >
-                <span>Book a Call</span>
+                <span>Book Your Consultation</span>
                 <ArrowRight className="h-5 w-5" />
-              </a>
+              </Link>
             </div>
             <div className="mt-4 text-blue-100 text-sm">
               smartbesttechnology.com | info@smartbesttechnology.com

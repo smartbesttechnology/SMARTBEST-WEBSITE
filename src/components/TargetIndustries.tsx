@@ -1,9 +1,10 @@
 import React from 'react';
-import { 
-  Home, 
-  ShoppingCart, 
-  Truck, 
-  GraduationCap, 
+import { Link } from 'react-router-dom';
+import {
+  Home,
+  ShoppingCart,
+  Truck,
+  GraduationCap,
   Sparkles,
   Mic,
   Briefcase,
@@ -72,14 +73,14 @@ const TargetIndustries = () => {
   ];
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-gray-50 dark:bg-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
             Industries We <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Serve</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             Our AI Business Automation solutions are tailored to meet the unique needs of various industries, 
             helping businesses across sectors scale efficiently and improve customer satisfaction.
           </p>
@@ -92,7 +93,7 @@ const TargetIndustries = () => {
             return (
               <div
                 key={index}
-                className={`group ${industry.bgColor} rounded-2xl p-8 hover:bg-white hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100`}
+                className={`group ${industry.bgColor} dark:bg-gray-700 rounded-2xl p-8 hover:bg-white dark:hover:bg-gray-600 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 dark:border-gray-600`}
               >
                 {/* Icon */}
                 <div className={`inline-flex p-4 rounded-xl bg-gradient-to-r ${industry.color} mb-6`}>
@@ -100,10 +101,10 @@ const TargetIndustries = () => {
                 </div>
 
                 {/* Content */}
-                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                   {industry.title}
                 </h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">
+                <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
                   {industry.description}
                 </p>
 
@@ -112,54 +113,25 @@ const TargetIndustries = () => {
                   {industry.useCases.map((useCase, useCaseIndex) => (
                     <li key={useCaseIndex} className="flex items-center space-x-2">
                       <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0" />
-                      <span className="text-gray-600 text-sm">{useCase}</span>
+                      <span className="text-gray-600 dark:text-gray-300 text-sm">{useCase}</span>
                     </li>
                   ))}
                 </ul>
 
                 {/* CTA */}
-                <a
-                  href="#contact"
-                  className="inline-flex items-center space-x-2 text-blue-600 font-semibold hover:text-blue-700 transition-colors group-hover:translate-x-1 transform duration-200"
+                <Link
+                  to="/booking"
+                  className="inline-flex items-center space-x-2 text-blue-600 dark:text-blue-400 font-semibold hover:text-blue-700 dark:hover:text-blue-300 transition-colors group-hover:translate-x-1 transform duration-200"
                 >
                   <span>Learn More</span>
                   <ArrowRight className="h-4 w-4" />
-                </a>
+                </Link>
               </div>
             );
           })}
         </div>
 
-        {/* Bottom CTA */}
-        <div className="text-center">
-          <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-              Don't See Your Industry?
-            </h3>
-            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-              Our AI solutions are highly customizable and can be adapted to any business type or industry. 
-              Let's discuss how we can create a tailored solution for your specific needs.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="#contact"
-                className="inline-flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-semibold transition-all duration-200 transform hover:scale-105"
-              >
-                <span>Discuss Your Needs</span>
-                <ArrowRight className="h-5 w-5" />
-              </a>
-              <a
-                href="https://wa.me/12602340752"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center space-x-2 bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-full font-semibold transition-all duration-200 transform hover:scale-105"
-              >
-                <span>WhatsApp Us</span>
-                <ArrowRight className="h-5 w-5" />
-              </a>
-            </div>
-          </div>
-        </div>
+
       </div>
     </section>
   );

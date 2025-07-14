@@ -22,6 +22,7 @@ import {
   Clock
 } from 'lucide-react';
 import { FadeInUp, StaggerContainer, StaggerItem } from './animations';
+import { Link } from 'react-router-dom';
 
 const Services = () => {
   const services = [
@@ -138,38 +139,19 @@ const Services = () => {
                 </ul>
 
                 {/* CTA */}
-                <a
-                  href="#contact"
+                <Link
+                  to="/booking"
                   className="inline-flex items-center space-x-2 text-blue-600 font-semibold hover:text-blue-700 transition-colors group-hover:translate-x-1 transform duration-200"
                 >
-                  <span>Learn More</span>
+                  <span>Book a Strategic Call</span>
                   <ArrowRight className="h-4 w-4" />
-                </a>
+                </Link>
               </StaggerItem>
             );
           })}
         </StaggerContainer>
 
-        {/* Bottom CTA */}
-        <FadeInUp delay={0.3} className="text-center mt-16">
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white">
-            <h3 className="text-2xl md:text-3xl font-bold mb-4">
-              Let AI work while you sleep. Book a free consultation today.
-            </h3>
-            <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-              Discover how our AI Business Automation solutions can transform your operations, increase conversions, and scale your business efficiently.
-            </p>
-            <div className="flex justify-center">
-              <a
-                href="#services"
-                className="inline-flex items-center space-x-2 bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
-              >
-                <span>Book a Call</span>
-                <ArrowRight className="h-5 w-5" />
-              </a>
-            </div>
-          </div>
-        </FadeInUp>
+
       </div>
     </section>
   );

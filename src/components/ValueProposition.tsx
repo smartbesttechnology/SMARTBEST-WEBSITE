@@ -8,6 +8,7 @@ import {
   CheckCircle,
   ArrowRight
 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const ValueProposition = () => {
   const benefits = [
@@ -49,14 +50,14 @@ const ValueProposition = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-white dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
             Why Choose <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Smartbest AI</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
             Our AI Business Automation solutions deliver measurable results that transform how you operate and grow your business.
           </p>
         </div>
@@ -68,7 +69,7 @@ const ValueProposition = () => {
             return (
               <div
                 key={index}
-                className="group bg-gray-50 rounded-2xl p-8 hover:bg-white hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100"
+                className="group bg-gray-50 dark:bg-gray-800 rounded-2xl p-8 hover:bg-white dark:hover:bg-gray-700 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 dark:border-gray-700"
               >
                 {/* Icon */}
                 <div className={`inline-flex p-4 rounded-xl bg-gradient-to-r ${benefit.color} mb-6`}>
@@ -76,10 +77,10 @@ const ValueProposition = () => {
                 </div>
 
                 {/* Content */}
-                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                   {benefit.title}
                 </h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">
+                <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
                   {benefit.description}
                 </p>
 
@@ -88,7 +89,7 @@ const ValueProposition = () => {
                   {benefit.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-center space-x-2">
                       <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0" />
-                      <span className="text-gray-600 text-sm">{feature}</span>
+                      <span className="text-gray-600 dark:text-gray-300 text-sm">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -98,7 +99,7 @@ const ValueProposition = () => {
         </div>
 
         {/* ROI Section */}
-        <div className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-2xl p-8 md:p-12 text-white">
+        <div className="bg-gradient-to-r from-gray-900 to-gray-800 dark:from-gray-800 dark:to-gray-700 rounded-2xl p-8 md:p-12 text-white">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h3 className="text-3xl md:text-4xl font-bold mb-6">
@@ -109,20 +110,20 @@ const ValueProposition = () => {
                 with significant cost savings and revenue increases within the first month.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <a
-                  href="#contact"
+                <Link
+                  to="/booking"
                   className="inline-flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-semibold transition-all duration-200 transform hover:scale-105"
                 >
-                  <span>Calculate Your ROI</span>
+                  <span>Book a Strategic Call</span>
                   <ArrowRight className="h-5 w-5" />
-                </a>
+                </Link>
                 <a
                   href="https://wa.me/12602340752"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center space-x-2 bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-full font-semibold transition-all duration-200 transform hover:scale-105"
                 >
-                  <span>Get Free Consultation</span>
+                  <span>WhatsApp Us</span>
                   <ArrowRight className="h-5 w-5" />
                 </a>
               </div>

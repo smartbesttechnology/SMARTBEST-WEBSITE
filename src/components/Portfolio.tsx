@@ -14,7 +14,7 @@ const Portfolio = () => {
       image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
       technologies: ['OpenAI GPT', 'Python', 'FastAPI', 'WebSocket'],
       liveUrl: '#',
-      githubUrl: '#',
+      githubUrl: 'https://github.com/smartbesttechnology/Flowise',
       results: '90% query resolution, 60% cost reduction'
     },
     {
@@ -25,7 +25,7 @@ const Portfolio = () => {
       image: 'https://images.pexels.com/photos/267350/pexels-photo-267350.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
       technologies: ['Telegram Bot API', 'Node.js', 'Stripe', 'MongoDB'],
       liveUrl: '#',
-      githubUrl: '#',
+      githubUrl: 'https://github.com/smartbesttechnology',
       results: '300% increase in mobile sales'
     },
     {
@@ -36,7 +36,7 @@ const Portfolio = () => {
       image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
       technologies: ['Python', 'Scikit-learn', 'CRM API', 'Email Automation'],
       liveUrl: '#',
-      githubUrl: '#',
+      githubUrl: 'https://github.com/smartbesttechnology/AI-Poster-Generator-Platform-8540',
       results: '250% increase in qualified leads'
     },
     {
@@ -47,7 +47,7 @@ const Portfolio = () => {
       image: 'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
       technologies: ['React Native', 'Firebase', 'Biometrics', 'AI Security'],
       liveUrl: '#',
-      githubUrl: '#',
+      githubUrl: 'https://github.com/smartbesttechnology',
       results: '99.9% uptime, 0% fraud incidents'
     },
     {
@@ -58,7 +58,7 @@ const Portfolio = () => {
       image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
       technologies: ['Speech Recognition', 'NLP', 'Azure Cognitive', 'WebRTC'],
       liveUrl: '#',
-      githubUrl: '#',
+      githubUrl: 'https://github.com/smartbesttechnology/Flowise',
       results: '85% customer satisfaction increase'
     },
     {
@@ -69,7 +69,7 @@ const Portfolio = () => {
       image: 'https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&fit=crop',
       technologies: ['React', 'Node.js', 'AI Recommendations', 'Stripe'],
       liveUrl: '#',
-      githubUrl: '#',
+      githubUrl: 'https://github.com/smartbesttechnology/SMARTBEST-WEBSITE',
       results: '40% increase in average order value'
     }
   ];
@@ -140,6 +140,8 @@ const Portfolio = () => {
                 <div className="absolute inset-0 flex items-center justify-center space-x-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <a
                     href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="bg-white/90 dark:bg-gray-800/90 p-3 rounded-full hover:bg-white dark:hover:bg-gray-800 transition-colors"
                     title="View Live"
                   >
@@ -147,6 +149,8 @@ const Portfolio = () => {
                   </a>
                   <a
                     href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="bg-white/90 dark:bg-gray-800/90 p-3 rounded-full hover:bg-white dark:hover:bg-gray-800 transition-colors"
                     title="View Code"
                   >
@@ -185,14 +189,7 @@ const Portfolio = () => {
                   ))}
                 </div>
 
-                {/* Learn More Link */}
-                <a
-                  href="#contact"
-                  className="inline-flex items-center space-x-2 text-blue-600 dark:text-blue-400 font-semibold hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
-                >
-                  <span>Learn More</span>
-                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </a>
+
               </div>
             </StaggerItem>
           ))}
